@@ -1,0 +1,40 @@
+﻿<Window x:Class="Mega_Board.BOARDwin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mega_Board"
+        mc:Ignorable="d"
+        Title="BOARDwin" Height="428.204" Width="647.82" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged" Topmost="True" ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <RichTextBox x:Name="boardtext" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Block.TextAlignment="Center" BorderThickness="1,1,1,2">
+            <RichTextBox.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+            </RichTextBox.BorderBrush>
+            <FlowDocument>
+
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox x:Name="boardtalon" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="72" BorderBrush="{x:Null}">
+            <FlowDocument/>
+        </RichTextBox>
+        <MediaElement Grid.Column="1" Grid.Row="1" x:Name="BoardPlayer" HorizontalAlignment="Right"  VerticalAlignment="Bottom" LoadedBehavior="Manual" MediaEnded="BoardPlayer_MediaEnded" UseLayoutRounding="True" ClipToBounds="True" SnapsToDevicePixels="True" IsHitTestVisible="False">
+            <MediaElement.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </MediaElement.LayoutTransform>
+        </MediaElement>
+    </Grid>
+</Window>

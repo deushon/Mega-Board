@@ -1,0 +1,17 @@
+﻿<Window x:Class="Mega_Board.Lisens"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mega_Board"
+        mc:Ignorable="d"
+        Title="Lisens" Height="150" Width="312" WindowStartupLocation="CenterScreen" MaxWidth="312" MaxHeight="150" Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Height="109" Margin="16,10,15,0" VerticalAlignment="Top" Width="272">
+            <Label Content="Введите ваш код активации:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="272" FontSize="16"/>
+            <TextBox x:Name="code" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="245" FontSize="16"/>
+            <Button Margin="10" Content="Проверить" HorizontalAlignment="Center" VerticalAlignment="Top"  Click="Button_Click" FontSize="16"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

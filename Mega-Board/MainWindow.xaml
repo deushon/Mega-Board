@@ -1,0 +1,104 @@
+﻿<Window x:Class="Mega_Board.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mega_Board"
+        mc:Ignorable="d"
+        Title="Параметры табло" Height="638.562" Width="864.733" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="board.ico" WindowStyle="ToolWindow">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="524" Margin="10,10,0,0" VerticalAlignment="Top" Width="837">
+            <TabItem Header="Обьявления">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="129*"/>
+                        <ColumnDefinition Width="226*"/>
+                    </Grid.ColumnDefinitions>
+                    <RichTextBox x:Name="Tred" HorizontalAlignment="Left" Height="398" Margin="10,51,0,0" VerticalAlignment="Top" Width="811" Grid.ColumnSpan="2" >
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="Введите текст для отображения на табло"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <Button x:Name="stbut" Content="Отправить текст на табло" HorizontalAlignment="Left" Margin="150,454,0,0" VerticalAlignment="Top" Width="531" Click="Button_Click_1" Height="32" Grid.ColumnSpan="2"/>
+                    <Button Content="Сохранить" HorizontalAlignment="Left" Margin="384,454,0,0" VerticalAlignment="Top" Width="135" Height="32" Click="Button_Click_7" Grid.Column="1"/>
+                    <Button Content="Загрузить" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" Width="135" Height="32" Click="Button_Click_8"/>
+                    <ToolBar FontFamily="Times New Roman" Margin="10,10,169,451" FontSize="16">
+                        <Button FontWeight="Bold" Command="EditingCommands.ToggleBold">B</Button>
+                        <Button FontStyle="Italic" Command="EditingCommands.ToggleItalic">I</Button>
+                        <Button Command="EditingCommands.ToggleUnderline">U</Button>
+                    </ToolBar>
+                    <ToolBar FontFamily="Times New Roman" Margin="150,11,473,450" FontSize="16" Grid.ColumnSpan="2">
+                        <Label>Размер шрифта</Label>
+                        <Button  Click="Button_Click_17">-</Button>
+                        <Button Click="Button_Click_16" >+</Button>
+                    </ToolBar>
+                    <ToolBar FontFamily="Times New Roman" Margin="61,10,10,451" FontSize="16" Grid.Column="1">
+                        <Label>Выравнивание</Label>
+                        <Button Command="EditingCommands.AlignLeft">Слева</Button>
+                        <Button Command="EditingCommands.AlignCenter">По центру</Button>
+                        <Button Command="EditingCommands.AlignRight">Справа</Button>
+                    </ToolBar>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Талоны">
+                <Grid Background="#FFE5E5E5" Margin="-1,0,1,0">
+                    <DataGrid x:Name="vrachs" HorizontalAlignment="Left" Height="405" Margin="10,41,0,0" VerticalAlignment="Top" Width="811" CanUserReorderColumns="False" CanUserResizeRows="False" CellEditEnding="vrachs_CellEditEnding" SelectedCellsChanged="vrachs_SelectedCellsChanged"/>
+                    <Button Content="Добавить врача" HorizontalAlignment="Left" Margin="689,10,0,0" VerticalAlignment="Top" Width="132" Height="23" Click="Button_Click_9"/>
+                    <TextBox x:Name="edvrach" HorizontalAlignment="Left" Height="23" Margin="54,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
+                    <TextBox x:Name="edtalon" HorizontalAlignment="Left" Height="23" Margin="443,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
+                    <Label Content="Врач:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Талонов в день" HorizontalAlignment="Left" Margin="343,10,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Сохранить изменения" HorizontalAlignment="Left" Margin="689,451,0,0" VerticalAlignment="Top" Width="132" Height="35" Click="Button_Click_10"/>
+                    <Button Content="Выдать талон" HorizontalAlignment="Left" Margin="10,451,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="Button_Click_12"/>
+                    <Button x:Name="refrtalon" Content="Обновить на табло" HorizontalAlignment="Left" Margin="444,361,0,0" VerticalAlignment="Top" Width="119" Height="35" Click="Button_Click_11" Visibility="Hidden"/>
+                    <Button Content="Загрузить" HorizontalAlignment="Left" Margin="572,451,0,0" VerticalAlignment="Top" Width="112" Height="35" Click="Button_Click_18" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Видео" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="visplaylist" HorizontalAlignment="Left" Height="385" Margin="6,42,0,0" VerticalAlignment="Top" Width="815"/>
+                    <Button Content="Выбрать видео" HorizontalAlignment="Left" Margin="10,466,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_3"/>
+                    <Button x:Name="playbut" Content="Старт" HorizontalAlignment="Left" Margin="381,466,0,0" VerticalAlignment="Top" Width="50" ContentStringFormat="" Click="Button_Click_2"/>
+                    <Button Content="&lt;&lt;" HorizontalAlignment="Left" Margin="356,466,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_5"/>
+                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="461,466,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_4"/>
+                    <Slider x:Name="voltrak" HorizontalAlignment="Left" Margin="681,468,0,0" VerticalAlignment="Top" Width="140" Value="0.5" Maximum="1" ValueChanged="Slider_ValueChanged"/>
+                    <Slider x:Name="videotraker" HorizontalAlignment="Left" Margin="9,440,0,0" VerticalAlignment="Top" Width="769" Visibility="Hidden"/>
+                    <Label Content="00:00" HorizontalAlignment="Left" Margin="783,432,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Button Content="[Х]" HorizontalAlignment="Left" Margin="436,466,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_6"/>
+                    <Label Content="Список воспроизведения:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="О программе" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="102" Margin="-2,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="27*"/>
+                        <ColumnDefinition Width="456*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="55*"/>
+                        <ColumnDefinition Width="172*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="verlab" Content="Версия:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="315"/>
+                    <Label Content="Автор: Михалко Андрей Владимирович (Erehon)" Grid.Column="1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26" Width="315"/>
+                    <Label Content="Mega-Board предназначена для выведения различной&#xA;информации на  дисплеи подключенные к ПК.&#xA;Данная редакция ПО адаптированна для&#xA; эл. табло медицинских учреждений.&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="7,71,0,0" VerticalAlignment="Top" Height="134" Width="406" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="0.045"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="-0.001"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="boardbut" Content="Включить табло" HorizontalAlignment="Left" Margin="10,539,0,0" VerticalAlignment="Top" Width="411" Height="28" Click="Button_Click"/>
+        <Label x:Name="mylab" Content="By Erehon" HorizontalAlignment="Left" Margin="777,572,0,0" VerticalAlignment="Top" FontWeight="Black" MouseMove="mylab_MouseMove" MouseLeave="mylab_MouseLeave" MouseDown="mylab_MouseDown"/>
+        <Label Content="Лесозаводск 2017" HorizontalAlignment="Left" Margin="373,572,0,0" VerticalAlignment="Top" />
+        <Button Content="Закрепить табло" HorizontalAlignment="Left" Margin="426,539,0,0" VerticalAlignment="Top" Width="421" Height="28" Click="Button_Click_14"/>
+        <Button Content="Выход" HorizontalAlignment="Left" Height="22" Margin="809,11,0,0" VerticalAlignment="Top" Width="auto" Click="Button_Click_15"/>
+        <Button Content="Свернуть панель" HorizontalAlignment="Left" Height="22" Margin="707,11,0,0" VerticalAlignment="Top" Width="auto" Click="Button_Click_19"/>
+    </Grid>
+</Window>
